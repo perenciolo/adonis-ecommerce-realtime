@@ -8,7 +8,7 @@ class ImageSchema extends Schema {
     this.create('images', (table) => {
       table.increments()
       table.string('path', 255)
-      table.image('size').unsigned()
+      table.integer('size').unsigned()
       table.string('original_name', 100)
       table.string('extension', 10)
       table.timestamps()
