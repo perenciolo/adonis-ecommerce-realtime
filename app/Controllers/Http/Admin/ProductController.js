@@ -20,11 +20,11 @@ class ProductController {
    * @param {object} ctx.pagination
    */
   async index({ request, response, pagination }) {
-    const title = request.input('title')
+    const name = request.input('name')
     const query = Product.query()
 
-    if (title) {
-      query.where('name', 'ILIKE', `%${title}%`)
+    if (name) {
+      query.where('name', 'ILIKE', `%${name}%`)
     }
 
     const products = await query.paginate(pagination.page, pagination.limit)
